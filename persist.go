@@ -17,7 +17,7 @@ func InitializePath(dirPath string) error {
 	return err
 }
 
-// Marshal is a function that marshals the object into an io.Reader.
+// Marshal is  a function that marshals the object into an io.Reader.
 // By default, it uses the JSON marshaller.
 var Marshal = func(v interface{}) (io.Reader, error) {
 	b, err := json.MarshalIndent(v, "", "\t")
