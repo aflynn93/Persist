@@ -11,7 +11,7 @@ import (
 var lock sync.Mutex
 
 // InitializePath creates a the specified path, dirPath, if it does not exist.
-var InitializePath = func(dirPath string) error {
+func InitializePath(dirPath string) error {
 	err := os.MkdirAll(dirPath, os.ModePerm)
 
 	return err
@@ -35,7 +35,7 @@ var Unmarshal = func(r io.Reader, v interface{}) error {
 }
 
 // Saves a representation of v to the file at path.
-func Saves(path string, v interface{}) error {
+func Save(path string, v interface{}) error {
 	lock.Lock()
 	defer lock.Unlock()
 
