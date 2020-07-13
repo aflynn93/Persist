@@ -17,7 +17,7 @@ func InitializePath(dirPath string) error {
 	return err
 }
 
-// Marshal is  a function that marshals the object into an io.Reader.
+// Marshal is a function that marshals the object into an io.Reader.
 // By default, it uses the JSON marshaller.
 var Marshal = func(v interface{}) (io.Reader, error) {
 	b, err := json.MarshalIndent(v, "", "\t")
@@ -57,8 +57,7 @@ func Save(path string, v interface{}) error {
 }
 
 // Load loads the file at path into v.
-// Use os.IsNotExist() to see if the returned error is due
-// to the file being missing.
+// Use os.IsNotExist() to see if the returned error is due to the file being missing.
 func Load(path string, v interface{}) error {
 	lock.Lock()
 	defer lock.Unlock()
