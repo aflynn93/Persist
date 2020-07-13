@@ -10,6 +10,13 @@ import (
 
 var lock sync.Mutex
 
+// InitializePath creates a the specified path, dirPath, if it does not exist.
+func InitializePath(dirPath string) error {
+	err := os.MkdirAll(dirPath, os.ModePerm)
+
+	return err
+}
+
 // Marshal is a function that marshals the object into an io.Reader.
 // By default, it uses the JSON marshaller.
 var Marshal = func(v interface{}) (io.Reader, error) {
